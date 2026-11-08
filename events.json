@@ -1,0 +1,42 @@
+[
+  {
+    "name": "awesome-python",
+    "owner": "vinta",
+    "description": "A curated list of awesome Python frameworks, libraries, software and resources.",
+    "language": "Python",
+    "stars": 238000,
+    "url": "https://github.com/vinta/awesome-python",
+    "starredAt": "2026-10-28",
+    "topics": ["python", "awesome-list"]
+  },
+  {
+    "name": "freeCodeCamp",
+    "owner": "freeCodeCamp",
+    "description": "The open-source community that helps you learn to code for free.",
+    "language": "TypeScript",
+    "stars": 430000,
+    "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+    "starredAt": "2026-10-22",
+    "topics": ["education", "javascript", "typescript"]
+  },
+  {
+    "name": "public-apis",
+    "owner": "public-apis",
+    "description": "A collective list of free APIs for use in software and web development.",
+    "language": "Python",
+    "stars": 37000,
+    "url": "https://github.com/public-apis/public-apis",
+    "starredAt": "2026-10-14",
+    "topics": ["api", "resources"]
+  },
+  {
+    "name": "oh-my-posh",
+    "owner": "JanDeDobbeleer",
+    "description": "A prompt theme engine for any shell.",
+    "language": "Go",
+    "stars": 18000,
+    "url": "https://github.com/JanDeDobbeleer/oh-my-posh",
+    "starredAt": "2026-10-06",
+    "topics": ["shell", "terminal"]
+  }
+]
