@@ -1,7 +1,4 @@
-const repositoryList = document.querySelector("#repository-list");
-const repositoryCount = document.querySelector("#repo-count");
-const starCount = document.querySelector("#star-count");
-const loadTime = document.querySelector("#load-time");
+const repositoryList = document.querySelector("#starred");
 const loadStatus = document.querySelector("#load-status");
 const numberFormatter = new Intl.NumberFormat("en");
 
@@ -86,30 +83,28 @@ async function loadRepositories() {
     }
 
     repositoryList.replaceChildren(fragment);
-    repositoryCount.textContent = numberFormatter.format(repositories.length);
-    starCount.textContent = numberFormatter.format(
-      repositories.reduce((total, repository) => total + repository.stars, 0)
-    );
-    loadTime.textContent = `${Math.round(performance.now() - requestStartedAt)} ms`;
-    loadStatus.textContent = `Updated just now · ${repositories.length} loaded`;
-
-    if (repositories.length === 0) {
-      const emptyState = document.createElement("li");
-      emptyState.className = "empty-state";
-      emptyState.textContent = "No starred repositories yet.";
-      repositoryList.append(emptyState);
-      loadStatus.textContent = "No repositories found";
-    }
+    const totalStars = repositories.reduce((total, repository) => total + repository.stars, 0);
+    loadStatus.textContent =
+      repositories.length === 0
+        ? "No starred repositories yet."
+        : `Loaded ${numberFormatter.format(repositories.length)} starred repositories.`;
+    console.info("Starred repositories loaded.", {
+      repositoryCount: repositories.length,
+      totalStars,
+      loadTimeMs: Math.round(performance.now() - requestStartedAt)
+    });
   } catch (error) {
-    console.error("Could not load starred repositories.", error);
-    loadTime.textContent = `${Math.round(performance.now() - requestStartedAt)} ms`;
-    loadStatus.textContent = "Could not load repositories";
+    console.error("Could not load starred repositories.", {
+      error,
+      loadTimeMs: Math.round(performance.now() - requestStartedAt)
+    });
     repositoryList.replaceChildren();
 
     const errorState = document.createElement("li");
     errorState.className = "empty-state";
     errorState.textContent = "Repository data could not be loaded. Please try again later.";
     repositoryList.append(errorState);
+    loadStatus.textContent = "Could not load starred repositories.";
   }
 }
 
