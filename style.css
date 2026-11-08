@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  font-family: "DM Sans", sans-serif;
+  color: #20232b;
+  background: #f6f7f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --muted: #777e8d;
+  --line: #e7e9ed;
+  --accent: #6a52d5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  width: min(100% - 48px, 840px);
+  margin: 0 auto;
+}
+
+.page-header {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #262833;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: #ece8ff;
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.header-note,
+.eyebrow,
+.metric-label,
+.load-status,
+.page-footer {
+  color: var(--muted);
+}
+
+.header-note {
+  font-size: 13px;
+}
+
+.intro {
+  padding: 72px 0 36px;
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 48px);
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.title-period {
+  color: var(--accent);
+}
+
+.intro-copy {
+  margin: 15px 0 0;
+  color: #686e7b;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 0 56px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric + .metric {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  font-size: 12px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.load-status {
+  font-size: 12px;
+}
+
+.repository-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.repository-card {
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.repository-card:hover {
+  transform: translateY(-2px);
+  border-color: #c9c1f3;
+}
+
+.repository-link {
+  display: inline-block;
+  color: #292b36;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.repository-link:hover {
+  color: var(--accent);
+}
+
+.repository-owner {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.repository-description {
+  margin: 8px 0 15px;
+  color: #686e7b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.repository-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 16px;
+  color: #727887;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+}
+
+.repo-language::before {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.repo-topic {
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f3f1fb;
+  color: #6554b6;
+}
+
+.empty-state {
+  padding: 28px 20px;
+  border: 1px dashed #d7d9df;
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 54px 0 28px;
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 36px, 840px);
+  }
+
+  .intro {
+    padding-top: 52px;
+  }
+
+  .metrics {
+    margin-bottom: 42px;
+  }
+
+  .metric + .metric {
+    padding-left: 14px;
+  }
+
+  .metric-value {
+    font-size: 19px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .repository-card {
+    padding: 17px;
+  }
+
+  .page-footer {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
